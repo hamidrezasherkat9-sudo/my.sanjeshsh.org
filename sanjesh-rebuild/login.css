@@ -1,0 +1,545 @@
+
+/* ==========================================
+   SANJESH LOGIN PAGE
+   FINAL STABLE VERSION
+========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #f7f8fa;
+    font-family: "Vazirmatn", Tahoma, sans-serif;
+    color: #17212b;
+}
+
+/* ==========================================
+   PAGE LAYOUT
+========================================== */
+
+.login-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 20px;
+}
+
+.login-wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   NOTICE
+========================================== */
+
+.notice {
+    background: #d5f4f5;
+    border: 1px solid #8edfe2;
+    color: #26747b;
+    border-radius: 5px;
+    padding: 13px 17px;
+    font-size: 13px;
+    line-height: 2;
+    text-align: right;
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   MAIN LOGIN CARD
+========================================== */
+
+.login-card {
+    width: 100%;
+    height: 720px;
+    min-height: 720px;
+    max-height: 720px;
+
+    display: grid;
+    grid-template-columns: 0.65fr 1.35fr;
+
+    direction: rtl;
+    background: #fff;
+
+    border-radius: 14px;
+    overflow: hidden;
+
+    box-shadow: 0 2px 15px rgba(20, 40, 60, .07);
+}
+
+/* ==========================================
+   IMAGE PANEL
+========================================== */
+
+.brand-panel {
+    position: relative;
+
+    width: 100%;
+    height: 720px;
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 18px;
+    overflow: hidden;
+
+    background: #123c60;
+    color: #fff;
+    text-align: center;
+}
+
+.brand-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: .12;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            transparent 0 13px,
+            #8eb4d0 14px 16px,
+            transparent 17px
+        ),
+        radial-gradient(
+            circle at 80% 35%,
+            transparent 0 22px,
+            #8eb4d0 23px 25px,
+            transparent 26px
+        ),
+        repeating-conic-gradient(
+            from 15deg at 50% 50%,
+            transparent 0deg 12deg,
+            rgba(255,255,255,.3) 13deg 18deg,
+            transparent 19deg 30deg
+        );
+
+    background-size: 85px 85px, 110px 110px, 130px 130px;
+}
+
+.brand-content {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+/* Main reference image */
+
+.brand-reference-image {
+    display: block;
+
+    width: 88%;
+    height: 88%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    border-radius: 14px;
+}
+
+/* Optional old logo elements */
+
+.brand-logo {
+    width: 110px;
+    height: 110px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    background: #edf4f7;
+    border: 6px solid #0a2c49;
+
+    color: #102b40;
+    font-size: 70px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.brand-title {
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 2.2;
+    white-space: nowrap;
+}
+
+/* ==========================================
+   FORM PANEL
+========================================== */
+
+.form-panel {
+    width: 100%;
+    height: 720px;
+    min-width: 0;
+    min-height: 0;
+
+    padding: 45px 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background: #fff;
+}
+
+.form-title {
+    margin: 0 0 30px;
+
+    text-align: center;
+
+    font-size: 22px;
+    font-weight: 800;
+
+    color: #101820;
+}
+
+/* ==========================================
+   INPUT FIELDS
+========================================== */
+
+.field {
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.field label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #111;
+}
+
+.field input,
+.field select {
+    display: block;
+
+    width: 100%;
+    height: 50px;
+
+    border: 1px solid #dfe4e9;
+    border-radius: 5px;
+
+    background: #fff;
+
+    padding: 8px 12px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    color: #333;
+}
+
+.field input:focus,
+.field select:focus {
+    border-color: #779bb8;
+}
+
+.nationality-field {
+    width: 100%;
+}
+
+.two-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* ==========================================
+   PASSWORD
+========================================== */
+
+.password-wrap {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrap input {
+    padding-left: 45px !important;
+}
+
+.eye-icon {
+    position: absolute;
+
+    left: 9px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 30px;
+    height: 30px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+    color: #687783;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: all .2s ease;
+}
+
+.eye-icon:hover {
+    background: #edf2f6;
+    color: #123c60;
+}
+
+/* ==========================================
+   CAPTCHA
+========================================== */
+
+.captcha-row {
+    display: grid;
+    grid-template-columns: 1fr 90px 35px;
+
+    align-items: center;
+    gap: 10px;
+}
+
+.captcha-code {
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #777;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    text-decoration: line-through;
+    transform: rotate(-4deg);
+
+    letter-spacing: 2px;
+}
+
+.refresh {
+    color: #00a66b;
+    font-size: 22px;
+    text-align: center;
+}
+
+/* ==========================================
+   LOGIN BUTTONS
+========================================== */
+
+.login-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+    margin: 25px 0 20px;
+
+    direction: ltr;
+}
+
+.action-button {
+    min-width: 0;
+    min-height: 49px;
+
+    border: 1px solid #123c60;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all .25s ease;
+}
+
+.action-primary {
+    background: #123c60;
+    color: #fff;
+}
+
+.action-primary:hover {
+    background: #0b2c49;
+}
+
+.action-secondary {
+    background: #fff;
+    color: #123c60;
+    border: 1px solid #123c60;
+}
+
+.action-secondary:hover {
+    background: #123c60;
+    color: #fff;
+    border-color: #123c60;
+}
+
+/* ==========================================
+   ACCOUNT LINKS
+========================================== */
+
+.account-links {
+    text-align: center;
+
+    font-size: 12px;
+    line-height: 2.5;
+
+    color: #173d60;
+}
+
+.account-links a {
+    color: #173d60;
+    text-decoration: none;
+}
+
+.account-links a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================
+   DEMO NOTE
+========================================== */
+
+.demo-note {
+    margin-top: 14px;
+
+    color: #777;
+
+    font-size: 11px;
+    text-align: center;
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width: 700px) {
+
+    .login-page {
+        padding: 20px 12px;
+        align-items: flex-start;
+    }
+
+    .login-wrapper {
+        max-width: 100%;
+    }
+
+    .login-card {
+        height: auto;
+        min-height: 0;
+        max-height: none;
+
+        grid-template-columns: 1fr;
+    }
+
+    .brand-panel {
+        height: 190px;
+        min-height: 190px;
+
+        padding: 12px;
+        order: -1;
+    }
+
+    .brand-content {
+        height: 100%;
+    }
+
+    .brand-reference-image {
+        width: 75%;
+        height: 90%;
+        max-height: 165px;
+    }
+
+    .brand-logo {
+        width: 75px;
+        height: 75px;
+
+        font-size: 48px;
+        margin-bottom: 10px;
+    }
+
+    .brand-title {
+        font-size: 12px;
+    }
+
+    .form-panel {
+        height: auto;
+        min-height: 0;
+
+        padding: 35px 22px;
+
+        overflow: visible;
+    }
+
+    .form-title {
+        font-size: 20px;
+    }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 420px) {
+
+    .two-fields {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .captcha-row {
+        grid-template-columns: 1fr 75px 30px;
+        gap: 6px;
+    }
+
+    .login-actions {
+        gap: 10px;
+    }
+
+    .action-button {
+        font-size: 12px;
+    }
+}

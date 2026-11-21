@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>کارنامه نمونه ۱۴۰۴ | سامانه آموزشی</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f5f6f8;
+    font-family: 'Vazirmatn', sans-serif;
+    color: #26384b;
+}
+
+.notice {
+    background: #fff1cf;
+    color: #805b12;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    border-bottom: 1px solid #ead8aa;
+}
+
+.page {
+    width: 100%;
+    padding: 35px 15px 25px;
+}
+
+.report {
+    position: relative;
+    width: 100%;
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 9px;
+    background: #fff;
+    border: 1px solid #aeb5bd;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    overflow: hidden;
+}
+
+.report::after {
+    content: "نمونه آموزشی ۱۴۰۴";
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-28deg);
+    font-size: 43px;
+    font-weight: 800;
+    color: rgba(35, 76, 125, .055);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.report-header {
+    display: grid;
+    grid-template-columns: 75px 1fr 58px;
+    align-items: center;
+    gap: 8px;
+    min-height: 85px;
+    padding: 5px 4px 10px;
+}
+
+.avatar {
+    width: 65px;
+    height: 68px;
+    border: 1px solid #d8dee8;
+    border-radius: 5px;
+    background: #edf2f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #315579;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.header-text {
+    text-align: center;
+    line-height: 1.9;
+}
+
+.header-text h1 {
+    font-size: 14px;
+    margin: 0 0 3px;
+    color: #1c3552;
+}
+
+.header-text p {
+    font-size: 9px;
+    margin: 0;
+    color: #536477;
+}
+
+.symbol {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #315579;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #315579;
+    font-size: 23px;
+    font-weight: 800;
+    margin: auto;
+}
+
+.sample-strip {
+    background: #173e65;
+    color: #fff;
+    text-align: center;
+    padding: 7px;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.description {
+    background: #f0f2ff;
+    border: 1px solid #d3d8ff;
+    border-radius: 4px;
+    padding: 11px 12px;
+    margin-bottom: 8px;
+    color: #5365a0;
+    font-size: 9px;
+    line-height: 2;
+}
+
+.description strong {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 7px;
+    position: relative;
+    z-index: 1;
+}
+
+th, td {
+    border: 1px solid #d5dbe2;
+    padding: 6px 4px;
+    text-align: center;
+    font-size: 9px;
+    line-height: 1.8;
+}
+
+th {
+    background: #e9edf1;
+    color: #314a64;
+    font-weight: 700;
+}
+
+td {
+    background: rgba(255,255,255,.94);
+    color: #26384b;
+}
+
+.section-title {
+    background: #e9edf1;
+    color: #294c70;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 7px;
+    text-align: center;
+    border: 1px solid #d5dbe2;
+    margin: 9px 0 0;
+}
+
+.result-box {
+    border: 1px solid #d5dbe2;
+    padding: 5px;
+    margin-top: 9px;
+}
+
+.result-heading {
+    background: #e9edfa;
+    color: #5365a0;
+    padding: 8px;
+    text-align: center;
+    font-size: 9px;
+    border: 1px solid #d4dcf2;
+    margin-bottom: 5px;
+}
+
+.result-table th,
+.result-table td {
+    font-size: 9px;
+}
+
+.result-value {
+    font-weight: 800;
+    color: #1b4c79;
+}
+
+.bottom-note {
+    border-top: 1px solid #e0e4e9;
+    margin-top: 9px;
+    padding: 9px 5px 4px;
+    text-align: center;
+    font-size: 8px;
+    color: #778493;
+    line-height: 2;
+}
+
+.print-area {
+    width: 100%;
+    max-width: 660px;
+    margin: 20px auto 0;
+    text-align: center;
+}
+
+.print-btn {
+    width: 48%;
+    min-width: 180px;
+    border: 0;
+    background: #173e65;
+    color: #fff;
+    padding: 12px;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #315579;
+    text-decoration: none;
+    font-size: 11px;
+}
+
+@media (max-width: 520px) {
+    .page {
+        padding: 20px 8px;
+    }
+
+    .report {
+        padding: 6px;
+    }
+
+    .report-header {
+        grid-template-columns: 55px 1fr 43px;
+        gap: 5px;
+    }
+
+    .avatar {
+        width: 48px;
+        height: 55px;
+        font-size: 20px;
+    }
+
+    .symbol {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+
+    .header-text h1 {
+        font-size: 11px;
+    }
+
+    .header-text p {
+        font-size: 8px;
+    }
+
+    th, td {
+        padding: 5px 2px;
+        font-size: 8px;
+    }
+
+    .report::after {
+        font-size: 32px;
+    }
+}
+
+@media print {
+    body {
+        background: #fff;
+    }
+
+    .notice,
+    .print-area {
+        display: none;
+    }
+
+    .page {
+        padding: 0;
+    }
+
+    .report {
+        max-width: 100%;
+        box-shadow: none;
+        border: 1px solid #999;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+
+<div class="page">
+
+    <main class="report">
+
+        <header class="report-header">
+
+            <div class="avatar">آم</div>
+
+            <div class="header-text">
+                <h1>بسمه تعالی
+
+</h1>
+                <p>کارنامه نهایی آزمون سراسری ۱۴۰۴</p>
+                <p>قابل توجه داوطلبین: به پیام های ارايه شده در کارنامه به دقت توجه فرمایید.</p>
+            </div>
+
+            <div class="symbol">آم</div>
+
+        </header>
+
+        <div class="sample-strip">
+            کارنامه نمایشی آزمون ۱۴۰۴ | نسخه آزمایشی
+        </div>
+
+        <div class="description">
+            <strong>توضیحات مهم:</strong>
+              داوطلبان گرامی تمامی مطالب مندرج در کارنامه و همچنین صفحه توضیحات کارنامه را به دقت مطالعه نمایند.
+        </div>
+
+        <div class="section-title">
+            اطلاعات فرضی داوطلب
+        </div>
+
+        <table>
+            <tr>
+                <th>نام و نام خانوادگی</th>
+                <th>جنسیت</th>
+                <th>گروه آزمایشی</th>
+            </tr>
+            <tr>
+                <td>موسي احمدي</td>
+                <td>مذکر</td>
+                <td>علوم تجربی</td>
+            </tr>
+            <tr>
+                <th>سال آزمون</th>
+                <th colspan="2">شناسه </th>
+            </tr>
+            <tr>
+                <td>۱۴۰۴</td>
+                <td colspan="2">DEMO-1404-001</td>
+            </tr>
+        </table>
+
+        <div class="section-title">
+            اطلاعات آموزشی نمونه
+        </div>
+
+        <table>
+            <tr>
+                <th>عنوان گروه</th>
+                <th>نوع دوره</th>
+            </tr>
+            <tr>
+                <td>علوم تجربی</td>
+                <td>روزانه</td>
+            </tr>
+        </table>
+
+        <div class="section-title">
+            خلاصه نمرات فرضی
+        </div>
+
+        <table>
+            <tr>
+                <th>درس</th>
+                <th>درصد </th>
+                <th>رتبه </th>
+            </tr>
+            <tr>
+                <td>زیست‌شناسی</td>
+                <td>23٪</td>
+                <td class="result-value">۷۸۵۰</td>
+            </tr>
+            <tr>
+                <td>شیمی</td>
+                <td>18.5٪</td>
+                <td class="result-value">۷۲۱۰</td>
+            </tr>
+            <tr>
+                <td>فیزیک</td>
+                <td>22٪</td>
+                <td class="result-value">۶۹۸۰</td>
+            </tr>
+            <tr>
+                <td>ریاضی</td>
+                <td>17٪</td>
+                <td class="result-value">۶۵۴۰</td>
+            </tr>
+        </table>
+
+        <div class="result-box">
+
+            <div class="result-heading">
+                اطلاعات نتیجه فرضی و غیررسمی آزمون ۱۴۰۴
+            </div>
+
+            <table class="result-table">
+                <tr>
+                    <th>رتبه کل</th>
+                    <th>رتبه </th>
+                    <th>وضعیت</th>
+                    <th>نتیجه</th>
+                </tr>
+                <tr>
+                    <td class="result-value">854725</td>
+                    <td class="result-value">25868</td>
+                    <td>مردود</td>
+                    <td>مردود</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="bottom-note">
+            این گزارش توسط سامانه آموزشی نمونه تولید شده است.
+            هیچ‌یک از اعداد، رتبه‌ها یا مشخصات این صفحه واقعی نیستند.
+        </div>
+
+    </main>
+
+    <div class="print-area">
+
+        <button class="print-btn" onclick="window.print()">
+            چاپ نسخه نمونه
+        </button>
+
+        <br>
+
+        <a class="back-link" href="final-report-list.html">
+            بازگشت به فهرست کارنامه‌ها
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

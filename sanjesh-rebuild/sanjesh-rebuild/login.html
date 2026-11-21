@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>محیط آزمایشی | بازسازی آموزشی</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+<main class="login-page">
+
+    <div class="login-wrapper">
+
+        <div class="notice">
+            این محیط یک بازسازی آموزشی و غیررسمی است و به سازمان سنجش یا هیچ سامانه دولتی وابستگی ندارد.
+            برای آزمایش، فقط از اطلاعات ساختگی استفاده کنید.
+        </div>
+
+        <section class="login-card">
+
+            <!-- پنل تصویر -->
+            <aside class="brand-panel">
+
+                <div class="brand-content">
+
+                    <img
+                        src="https://cavanimattress.ir/wp-content/uploads/2026/11/سازمان-سنجش-Google-Chrome-28_08_1405-12_12_58-ب.ظ.png"
+                        alt="تصویر مرجع آموزشی"
+                        class="brand-reference-image"
+                    >
+
+                </div>
+
+            </aside>
+
+            <!-- پنل فرم -->
+            <div class="form-panel">
+
+                <h1 class="form-title">
+                    ورود به محیط آزمایشی
+                </h1>
+
+                <!-- ملیت -->
+                <div class="field nationality-field">
+
+                    <label for="nationality">
+                        ملیت
+                    </label>
+
+                    <select id="nationality" name="nationality">
+
+                        <option value="iran" selected>ایران</option>
+                        <option value="afghanistan">افغانستان</option>
+                        <option value="pakistan">پاکستان</option>
+                        <option value="turkey">ترکیه</option>
+                        <option value="lebanon">لبنان</option>
+                        <option value="india">هند</option>
+                        <option value="other">سایر کشورها</option>
+
+                    </select>
+
+                </div>
+
+                <!-- اطلاعات آزمایشی -->
+                <div class="two-fields">
+
+                    <div class="field">
+
+                        <label for="demo-user">
+                            کد ملی / شناسه یکتا : :
+                        </label>
+
+                        <input
+                            id="demo-user"
+                            type="text"
+                            maxlength="20"
+                            placeholder=" "
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="demo-password">
+                            رمز عبور: :
+                        </label>
+
+                        <div class="password-wrap">
+
+                            <input
+                                id="demo-password"
+                                type="password"
+                                placeholder=" "
+                                autocomplete="off"
+                            >
+
+                            <button
+                                type="button"
+                                class="eye-icon"
+                                id="togglePassword"
+                                aria-label="نمایش رمز"
+                                title="نمایش رمز"
+                            >
+
+                                <svg
+                                    id="eyeIcon"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="19"
+                                    height="19"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- کپچای نمایشی -->
+                <div class="field">
+
+                    <label for="captcha">
+                        حاصل جمع اعداد:
+                    </label>
+
+                    <div class="captcha-row">
+
+                        <input
+                            id="captcha"
+                            type="text"
+                            placeholder=" "
+                            autocomplete="off"
+                        >
+
+                        <div class="captcha-code">
+                            ۹ + ۱ = ؟
+                        </div>
+
+                        <button
+                            class="refresh"
+                            id="refreshCaptcha"
+                            type="button"
+                            aria-label="تغییر سؤال"
+                        >
+                            ↻
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- دکمه‌ها -->
+                <div class="login-actions">
+
+                    <button
+                        class="action-button action-secondary"
+                        type="button"
+                        id="demoSecondary"
+                    >
+                        ورود با دولت من 
+                    </button>
+
+                    <button
+                        class="action-button action-primary"
+                        type="button"
+                        id="loginButton"
+                    >
+                        ورود   
+                    </button>
+
+                </div>
+
+                <!-- لینک‌های نمایشی -->
+                <div class="account-links">
+
+                    این یک محیط آزمایشی مستقل است.
+
+                    <br>
+
+                    <a href="index.html">
+                        بازگشت به صفحه اصلی نمونه
+                    </a>
+
+                </div>
+
+                <!-- یادداشت -->
+                <div class="demo-note">
+
+                    نسخه بازسازی‌شده نمایشی؛
+                    اطلاعات واردشده به هیچ سامانه‌ای ارسال نمی‌شود.
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const passwordInput = document.getElementById("demo-password");
+    const togglePassword = document.getElementById("togglePassword");
+    const loginButton = document.getElementById("loginButton");
+    const captchaInput = document.getElementById("captcha");
+    const refreshCaptcha = document.getElementById("refreshCaptcha");
+    const captchaCode = document.querySelector(".captcha-code");
+
+    // نمایش و مخفی کردن رمز
+    togglePassword.addEventListener("click", function () {
+
+        const isHidden = passwordInput.type === "password";
+
+        passwordInput.type = isHidden ? "text" : "password";
+
+        togglePassword.setAttribute(
+            "aria-label",
+            isHidden ? "مخفی کردن رمز" : "نمایش رمز"
+        );
+
+        togglePassword.title = isHidden
+            ? "مخفی کردن رمز"
+            : "نمایش رمز";
+
+    });
+
+    // تغییر سؤال نمایشی
+    refreshCaptcha.addEventListener("click", function () {
+
+        captchaCode.textContent = "۵ + ۳ = ؟";
+        captchaInput.value = "";
+
+    });
+
+    // رفتن به صفحه بعدی نمونه
+    loginButton.addEventListener("click", function () {
+
+        window.location.href = "dashboard.html";
+
+    });
+
+    // گزینه دوم
+    document.getElementById("demoSecondary").addEventListener("click", function () {
+
+        window.location.href = "index.html";
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>داشبورد آزمایشی</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Vazirmatn", Tahoma, sans-serif;
+            background: #edf1f6;
+            color: #25364a;
+        }
+
+        .demo-banner {
+            background: #fff4d8;
+            color: #77551b;
+            text-align: center;
+            padding: 9px 15px;
+            font-size: 12px;
+            border-bottom: 1px solid #ead8aa;
+        }
+
+        /* Header */
+
+        .topbar {
+            height: 68px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 18px;
+            border-bottom: 1px solid #e7eaf0;
+            direction: rtl;
+        }
+
+        .user-area {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .avatar {
+    width: 42px;
+    height: 52px;
+    border-radius: 6cqh;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid #dce6f1;
+    display: block;
+    flex-shrink: 0;
+}
+
+        .logout {
+            text-decoration: none;
+            color: #e34d63;
+            border: 1px solid #f0a1ac;
+            border-radius: 4px;
+            padding: 7px 14px;
+            font-size: 12px;
+        }
+
+        .logout:hover {
+            background: #fff0f2;
+        }
+
+        /* Layout */
+
+        .layout {
+            display: flex;
+            min-height: calc(100vh - 104px);
+        }
+
+        .sidebar {
+            width: 62px;
+            flex-shrink: 0;
+            background: #fff;
+            border-left: 1px solid #e7eaf0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            padding: 25px 0;
+        }
+
+        .side-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 7px;
+            color: #53718f;
+            font-size: 19px;
+        }
+
+        .side-icon.active {
+            background: #edf3fb;
+            color: #244fae;
+        }
+
+        /* Main */
+
+        .main-content {
+            flex: 1;
+            min-width: 0;
+            padding: 48px 35px;
+        }
+
+        .dashboard-label {
+            max-width: 950px;
+            margin: 0 auto 22px;
+            font-size: 13px;
+            color: #687b91;
+        }
+
+        .cards {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    direction: rtl;
+}
+
+        .dashboard-card {
+    background: #fff;
+    border-radius: 12px;
+    min-height: 230px;
+    padding: 34px 28px 28px;
+    box-shadow: 0 6px 18px rgba(28, 48, 70, .10);
+    border-top: 4px solid #294db3;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-radius .3s ease;
+
+    cursor: pointer;
+}
+
+.dashboard-card.green {
+    border-top-color: #08c99d;
+}
+
+/* حرکت هنگام بردن موس روی کادر */
+
+.dashboard-card:hover {
+    transform: translateY(-9px) scale(1.025);
+    box-shadow: 0 16px 32px rgba(28, 48, 70, .18);
+    border-radius: 15px;
+    z-index: 2;
+}
+
+        .dashboard-card.green {
+            border-top-color: #08c99d;
+        }
+
+        .card-heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-bottom: 22px;
+    font-size: 16px;
+    font-weight: 800;
+    direction: rtl;
+}
+
+        .card-icon {
+            font-size: 19px;
+        }
+
+        .card-description {
+            font-size: 12px;
+            color: #8290a2;
+            line-height: 2.2;
+            margin-bottom: 20px;
+        }
+
+        .card-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background: #294bb4;
+            color: #fff;
+            font-family: inherit;
+            font-size: 13px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .green .card-button {
+            background: #08c99d;
+        }
+
+        .card-button:hover {
+            filter: brightness(.94);
+        }
+
+        /* Mobile */
+
+        @media (max-width: 650px) {
+            .topbar {
+                padding: 0 12px;
+            }
+
+            .main-content {
+                padding: 30px 15px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                width: 48px;
+            }
+        }
+        .card-icon {
+    font-size: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.person-icon {
+    font-size: 25px;
+    color: #08b98f;
+}
+
+.exam-logo {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+.dashboard-card:not(.green) .card-button:hover {
+    background: #fff;
+    color: #294bb4;
+    border: 1px solid #294bb4;
+    box-shadow: 0 3px 12px rgba(41, 75, 180, 0.15);
+    transition: all 0.3s ease;
+}
+.dashboard-card.green .card-button:hover {
+    background: #fff;
+    color: #08c99d;
+    border: 1px solid #08c99d;
+    box-shadow: 0 3px 12px rgba(8, 201, 157, 0.15);
+    transition: all 0.3s ease;
+}
+    </style>
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <div class="user-area">
+            <span>موسي احمدي </span>
+           <img
+    src="https://cavanimattress.ir/wp-content/uploads/2026/11/download.jpg"
+    alt="تصویر کاربر نمونه"
+    class="avatar"
+>
+        </div>
+
+        <a href="login.html" class="logout">
+            خروج ←
+        </a>
+
+    </header>
+
+    <div class="layout">
+
+        <aside class="sidebar">
+            <div class="side-icon active">▦</div>
+            <div class="side-icon">◎</div>
+            <div class="side-icon">⚙</div>
+        </aside>
+
+        <main class="main-content">
+
+           
+            <section class="cards">
+
+                <!-- سمت راست -->
+
+                <article class="dashboard-card green">
+
+                    <div class="card-heading">
+    <span class="card-icon person-icon">👤</span>
+    <span>اطلاعات  من</span>
+</div>
+
+                    <div class="card-description">
+                        مدیریت پروفایل و اطلاعات شخصی
+                    </div>
+
+                    <a href="#" class="card-button">
+                         ورود ←
+                    </a>
+
+                </article>
+
+                <!-- سمت چپ -->
+
+                <article class="dashboard-card">
+
+                    <div class="card-heading">
+    <img
+        class="card-icon exam-logo"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhrclMrjV4_y-gUTGmdqeZCdzLNWCTNhUYRhf2aB2Y5A&s=10"
+        alt="لوگوی آزمون سراسری"
+    >
+    <span>سراسری و دانشجو معلم </span>
+</div>
+
+                    <div class="card-description">
+                             امور مربوط به آزمون سراسری، دانشجو-معلم و پذیرش بر اساس سوابق تحصیلی
+                    </div>
+
+                    <a href="sarasari.html" class="card-button">
+                        ورود  ←
+                    </a>
+
+                </article>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

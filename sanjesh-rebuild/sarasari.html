@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بخش آزمون‌ها | محیط آموزشی</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Vazirmatn", Tahoma, sans-serif;
+            background: #f7f9fc;
+            color: #25364a;
+        }
+
+        .demo-banner {
+            background: #fff3cd;
+            color: #795b00;
+            border-bottom: 1px solid #ead99a;
+            text-align: center;
+            padding: 9px 15px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* نوار بالایی */
+        .topbar {
+            min-height: 58px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 18px;
+            border-bottom: 1px solid #e9edf3;
+        }
+
+        .header-user {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .user-name {
+            color: #25364a;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .avatar {
+            width: 34px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid #e5eaf1;
+        }
+
+        .menu-button {
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: transparent;
+            color: #536b91;
+            font-size: 19px;
+            cursor: pointer;
+        }
+
+        .logout {
+            text-decoration: none;
+            color: #e34d5a;
+            background: #fff;
+            border: 1px solid #f1aab0;
+            padding: 7px 14px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 700;
+            transition: .25s ease;
+            flex-shrink: 0;
+        }
+
+        .logout:hover {
+            background: #e34d5a;
+            color: #fff;
+        }
+
+        /* ساختار اصلی صفحه */
+        .layout {
+            display: flex;
+            min-height: calc(100vh - 58px);
+        }
+
+        /* نوار کناری سمت راست */
+        .sidebar {
+            width: 58px;
+            flex-shrink: 0;
+            background: #fff;
+            border-right: 1px solid #e9edf3;
+            border-left: 1px solid #e9edf3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            padding: 25px 0;
+        }
+
+        .side-icon {
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #536b91;
+            font-size: 19px;
+            border-radius: 8px;
+        }
+
+        .side-icon.active {
+            background: #e9f1ff;
+            color: #2850bd;
+        }
+
+        /* محتوای صفحه */
+        .main-content {
+            flex: 1;
+            min-width: 0;
+            padding: 42px 40px 50px;
+        }
+
+        /* عنوان سمت راست و برچسب سمت چپ */
+        .section-header {
+            max-width: 1100px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .section-heading {
+            text-align: right;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            color: #168fe0;
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            color: #8290a2;
+            font-size: 11px;
+            margin-top: 7px;
+        }
+
+        .section-tag {
+            background: #e9f1ff;
+            color: #3158bb;
+            border-radius: 25px;
+            padding: 8px 15px;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* کارت‌ها */
+        .services {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 19px;
+        }
+
+        .service-card {
+            min-height: 148px;
+            background: #fff;
+            border: 1px solid #e6ebf3;
+            border-top: 3px solid #2850c5;
+            border-radius: 10px;
+            padding: 17px 16px;
+            box-shadow: 0 4px 12px rgba(35, 67, 120, 0.08);
+            display: flex;
+            flex-direction: column;
+            transition: .25s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 9px 20px rgba(35, 67, 120, 0.13);
+        }
+
+        .service-heading {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .service-icon {
+            width: 37px;
+            height: 37px;
+            flex-shrink: 0;
+            border-radius: 8px;
+            background: #e9f1ff;
+            color: #315bc5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+        }
+
+        .service-heading h3 {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.8;
+            font-weight: 800;
+        }
+
+        .service-description {
+            color: #8995a7;
+            font-size: 10px;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .service-button {
+            margin-top: auto;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background: #294bb5;
+            color: #fff;
+            border-radius: 6px;
+            padding: 9px;
+            font-size: 11px;
+            font-weight: 600;
+            transition: .25s ease;
+        }
+
+        .service-button:hover {
+            background: #fff;
+            color: #294bb5;
+            border: 1px solid #294bb5;
+        }
+
+        /* تبلت */
+        @media (max-width: 950px) {
+            .services {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+        }
+
+        /* موبایل */
+        @media (max-width: 550px) {
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                padding: 7px 12px;
+                min-height: 55px;
+            }
+
+            .header-user {
+                gap: 8px;
+            }
+
+            .avatar {
+                width: 31px;
+                height: 36px;
+            }
+
+            .user-name {
+                font-size: 10px;
+            }
+
+            .logout {
+                padding: 6px 10px;
+                font-size: 10px;
+            }
+
+            .main-content {
+                padding: 25px 13px;
+            }
+
+            .section-header {
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .section-heading h2 {
+                font-size: 16px;
+            }
+
+            .section-subtitle {
+                font-size: 10px;
+            }
+
+            .section-tag {
+                padding: 7px 10px;
+                font-size: 10px;
+            }
+
+            .sidebar {
+                width: 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+   
+
+    <header class="topbar">
+
+        <div class="header-user">
+
+            <button class="menu-button" type="button" aria-label="منو">☰</button>
+
+            <img
+                src="https://cavanimattress.ir/wp-content/uploads/2026/11/download.jpg"
+                alt="تصویر کاربر نمونه"
+                class="avatar"
+            >
+
+            <span class="user-name">موسی احمدی</span>
+
+        </div>
+
+        <a href="login.html" class="logout">
+            خروج ←
+        </a>
+
+    </header>
+
+    <div class="layout">
+
+        <aside class="sidebar">
+            <div class="side-icon active">▦</div>
+            <div class="side-icon">◎</div>
+            <div class="side-icon">⚙</div>
+        </aside>
+
+        <main class="main-content">
+
+            <div class="section-header">
+
+                <div class="section-heading">
+                    <h2>سراسری و دانشجو-معلم </h2>
+                    <div class="section-subtitle">
+                           مدیریت آزمون سراسری و دانشجو-معلم و فرایندهای مرتبط
+                    </div>
+                </div>
+
+                <span class="section-tag">سراسری و دانشجو معلم </span>
+
+            </div>
+
+            <section class="services">
+
+                <article class="service-card">
+                    <div class="service-heading">
+                        <span class="service-icon">♙</span>
+                        <h3>ثبت نام در آزمون</h3>
+                    </div>
+                    <div class="service-description">
+                        نمایش نمونه اطلاعات ثبت نام آزمون
+                    </div>
+                    <a href="#" class="service-button">مشاهده نمونه ←</a>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-heading">
+                        <span class="service-icon">♙</span>
+                        <h3>کارنامه انتخاب رشته دانشجو معلم</h3>
+                    </div>
+                    <div class="service-description">
+                        نمایش آزمایشی کارنامه و نتایج نمونه
+                    </div>
+                    <a href="#" class="service-button">مشاهده نمونه ←</a>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-heading">
+                        <span class="service-icon">♙</span>
+                        <h3>کارنامه انتخاب رشته سراسری</h3>
+                    </div>
+                    <div class="service-description">
+                        مشاهده اطلاعات فرضی انتخاب رشته
+                    </div>
+                    <a href="#" class="service-button">مشاهده نمونه ←</a>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-heading">
+                        <span class="service-icon">☷</span>
+                        <h3>انتخاب رشته</h3>
+                    </div>
+                    <div class="service-description">
+                        نمایش نمونه بخش انتخاب رشته دانشگاهی
+                    </div>
+                    <a href="#" class="service-button">مشاهده نمونه ←</a>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-heading">
+                        <span class="service-icon">☆</span>
+                        <h3>اعلام نتیجه رشته‌های دارای شرایط خاص</h3>
+                    </div>
+                    <div class="service-description">
+                        نمایش نمونه نتایج رشته‌های خاص
+                    </div>
+                    <a href="#" class="service-button">مشاهده نمونه ←</a>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-heading">
+                        <span class="service-icon">◎</span>
+                        <h3>نقطه قبولی</h3>
+                    </div>
+                    <div class="service-description">
+                        نمایش اطلاعات فرضی حداقل نمرات
+                    </div>
+                    <a href="#" class="service-button">مشاهده نمونه ←</a>
+                </article>
+
+                <article class="service-card">
+    <div class="service-heading">
+        <span class="service-icon">✓</span>
+        <h3>کارنامه نهایی</h3>
+    </div>
+
+    <div class="service-description">
+        نمایش نمونه کارنامه نهایی آزمون
+    </div>
+
+    <a href="final-report.html" class="service-button">
+        مشاهده نمونه ←
+    </a>
+</article>
+
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
